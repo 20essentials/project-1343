@@ -2,27 +2,12 @@
 import './page.css';
 import { startTransition, useState, ViewTransition } from 'react';
 
-function Rectangle() {
-  return (
-    <ViewTransition>
-      <aside className='rectangle rectangle-gradient'></aside>
-    </ViewTransition>
-  );
-}
-function RectangleHidden() {
-  return (
-    <ViewTransition>
-      <aside className='rectangle rectangle-hidden'></aside>
-    </ViewTransition>
-  );
-}
-
 function Component() {
   const [show, setShow] = useState(false);
 
   function handleShow() {
     startTransition(() => {
-      setShow(!show);
+      setShow(prev => !prev);
     });
   }
 
@@ -31,7 +16,16 @@ function Component() {
       <button className='button-show-or-not' onClick={handleShow}>
         {show ? '✖️' : '➕'}
       </button>
-      {show ? <Rectangle /> : <RectangleHidden />}
+
+      {show ? (
+        <ViewTransition key='visible' enter='slide-in-left' exit='slide-out-right'>
+          <aside className='rectangle rectangle-gradient' />
+        </ViewTransition>
+      ) : (
+        <ViewTransition key='hidden' enter='slide-in-left' exit='slide-out-right'>
+          <aside className='rectangle rectangle-hidden' />
+        </ViewTransition>
+      )}
     </>
   );
 }
@@ -45,7 +39,7 @@ export default function Page() {
         autoPlay
         muted
         loop
-      ></video>
+      />
       <Component />
     </article>
   );
