@@ -1,11 +1,12 @@
 'use client';
+import '@/styles/button.css';
 import { CSSProperties, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 function ButtonComponent({ link, name }: { link: string; name: string }) {
   const [clr] = useState(() => {
     const hue = Math.floor(Math.random() * 360);
-    return hue
+    return hue;
   });
 
   useEffect(() => {

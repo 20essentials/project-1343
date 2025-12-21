@@ -1,6 +1,7 @@
 import { type Metadata } from 'next';
 import '@/styles/global.css';
 import { inter } from '@/lib/fonts';
+import { ButtonInnert } from './buttonInnert';
 
 export const metadata: Metadata = {
   title: '20 Examples with View Transitions',
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className={inter.className}>
-      <body>{children}</body>
+      <body>
+        {children} 
+        <ButtonInnert />
+      </body>
     </html>
   );
 }
