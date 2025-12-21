@@ -7,7 +7,7 @@
   padding: 2vmax;
 }
 
-.button {
+.button-c {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -38,7 +38,7 @@
   transform: perspective(70px) rotateX(5deg) rotateY(0deg);
 }
 
-.button::after {
+.button-c::after {
   content: '';
   position: absolute;
   top: 0;
@@ -53,7 +53,7 @@
   transition: all .1s ease-in-out 0s;
 }
 
-.button::before {
+.button-c::before {
   content: '';
   position: absolute;
   top: 0;
@@ -70,7 +70,7 @@
   transition: all .1s ease-in-out 0s;
 }
 
-.button:active {
+.button-c:active {
   will-change: transform;
   transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
   height: 64px;
@@ -82,11 +82,11 @@
   transition: all .1s ease-in-out 0s;
 }
 
-.button::after:active {
+.button-c::after:active {
   background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
 }
 
-.button:active::before {
+.button-c:active::before {
   content: "";
   display: block;
   position: absolute;
@@ -99,7 +99,7 @@
   pointer-events: none;
 }
 
-.button svg {
+.button-c svg {
   width: 15px;
   height: 15px;
 }
@@ -114,6 +114,6 @@
   }
 }
 
-.button:focus {
+.button-c:focus {
   outline: none;
 }

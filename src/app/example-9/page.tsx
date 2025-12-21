@@ -18,7 +18,7 @@ export default function Page() {
     <main className='page'>
       <div className='d3warpper' onClick={toggleTheme}>
         <div className='cover'>
-          <button className='button'>S</button>
+          <button className='button-s'>S</button>
         </div>
       </div>
     </main>

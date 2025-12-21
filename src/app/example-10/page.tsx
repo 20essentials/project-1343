@@ -16,7 +16,7 @@ function toggleTheme() {
 export default function Page() {
   return (
     <main className='page'>
-      <button className='button' onClick={toggleTheme}>
+      <button className='button-c' onClick={toggleTheme}>
         <svg
           stroke='#ffffff'
           xmlSpace='preserve'

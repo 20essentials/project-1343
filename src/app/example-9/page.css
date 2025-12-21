@@ -21,7 +21,7 @@
   padding-bottom: 11px;
   box-shadow: 0px 1px 1px 1px white;
 }
-.button {
+.button-s {
   cursor: pointer;
   border: none;
   border-bottom: 2px solid white;
@@ -47,7 +47,7 @@
   justify-content: center;
   scale: 1;
 }
-.button:active {
+.button-s:active {
   box-shadow: 0px 4px 0px 0.2px rgb(116, 116, 116, 0);
   transform: translateY(4.5px);
   transition: 80ms;

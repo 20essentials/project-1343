@@ -11,7 +11,7 @@
   display: none;
 }
 
-.button {
+.button-li {
   padding: 40px;
   border-radius: 60px;
   background-color: #e8e8e8;
@@ -77,7 +77,7 @@
   width: 10px;
   box-shadow: 2px 6px 6px -4px #7ca4b2 inset;
 }
-.liquid-button:checked + .button .donut-transform .bubble1 {
+.liquid-button:checked + .button-li .donut-transform .bubble1 {
   right: 35px;
   top: 20px;
 }
@@ -89,7 +89,7 @@
   width: 14px;
   box-shadow: 2px 6px 6px -2px #84adc8 inset;
 }
-.liquid-button:checked + .button .donut-transform .bubble2 {
+.liquid-button:checked + .button-li .donut-transform .bubble2 {
   right: 20px;
 }
 .bubble3 {
@@ -99,7 +99,7 @@
   width: 5px;
   box-shadow: 0px 0px 4px -1px #618fa8 inset;
 }
-.liquid-button:checked + .button .donut-transform .bubble3 {
+.liquid-button:checked + .button-li .donut-transform .bubble3 {
   left: 12px;
   top: 58px;
 }
@@ -111,7 +111,7 @@
   width: 20px;
   box-shadow: 2px 4px 6px -1px #97c3da inset;
 }
-.liquid-button:checked + .button .donut-transform .bubble4 {
+.liquid-button:checked + .button-li .donut-transform .bubble4 {
   left: 8px;
   top: 78px;
 }
@@ -123,7 +123,7 @@
   width: 12px;
   box-shadow: 2px 4px 6px -1px #8cb6cb inset;
 }
-.liquid-button:checked + .button .donut-transform .bubble5 {
+.liquid-button:checked + .button-li .donut-transform .bubble5 {
   left: 10px;
   top: 65px;
 }
@@ -208,7 +208,7 @@
   }
 }
 
-.liquid-button:checked + .button .donut-transform {
+.liquid-button:checked + .button-li .donut-transform {
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -219,7 +219,7 @@
   animation: size 1s ease-in-out 2;
 }
 
-.liquid-button:checked + .button .donut-transform::before {
+.liquid-button:checked + .button-li .donut-transform::before {
   z-index: 11;
   background-color: #fff;
   border-radius: 38% 50% 50% 38%;
@@ -230,7 +230,7 @@
   transform: rotate(45deg);
 }
 
-.liquid-button:checked + .button .donut-transform::after {
+.liquid-button:checked + .button-li .donut-transform::after {
   border-radius: 50%;
   background: #fff;
   width: 6px;
@@ -240,16 +240,16 @@
   transform: rotate(40deg);
 }
 
-.liquid-button:checked + .button .donut-transform .bubble {
+.liquid-button:checked + .button-li .donut-transform .bubble {
   animation: wave 3s linear 1;
 }
 
-.liquid-button:checked + .button .donut-transform .ripple .wave {
+.liquid-button:checked + .button-li .donut-transform .ripple .wave {
   animation: wave 2s ease-in-out 1, wave 2s linear 1;
   animation-delay: -1s, 0.5s;
 }
 
-.liquid-button:checked + .button .donut-transform .circle {
+.liquid-button:checked + .button-li .donut-transform .circle {
   animation: size 1s ease-in-out 2;
   opacity: 1;
 }
