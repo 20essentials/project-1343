@@ -1,6 +1,11 @@
-import { redirect } from 'next/navigation';
+import { Background } from '@/components/background';
+import { Hero } from '@/components/hero';
 
 export default function Home() {
-  redirect('/example-19');
-  return <></>;
+  return (
+    <>
+      <Background />
+      <Hero />
+    </>
+  );
 }

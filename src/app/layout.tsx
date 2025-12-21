@@ -3,7 +3,7 @@ import '@/styles/global.css';
 import { inter } from '@/lib/fonts';
 
 export const metadata: Metadata = {
-  title: 'View Transitions With NextJs',
+  title: '20 Examples with View Transitions',
   description: 'Practicing View Transitions',
   icons: {
     icon: '/assets/favicon.png'

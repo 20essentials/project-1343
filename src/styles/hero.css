@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap');
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-items: center;
+  place-content: center;
+}
+
+:root {
+  --bg-color: #191825;
+  --color-1: #30e3df;
+  --color-2: #fce22a;
+  --color-3: #f94a29;
+  --color-4: #d61355;
+  --border-color-space: 0.2vmax;
+}
+
+.title {
+  font-size: 5vmax;
+  font-family: 'Space Grotesk', serif;
+  letter-spacing: var(--border-color-space);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  text-align: center;
+  color: var(--bg-color);
+  background: linear-gradient(
+    90deg,
+    var(--color-1),
+    var(--color-2),
+    var(--color-3),
+    var(--color-4)
+  );
+  background-clip: text;
+  -webkit-text-stroke: var(--border-color-space) transparent;
+  filter: drop-shadow(0.1vmax 0.1vmax 0.3vmax rgba(0, 0, 0, 0.7));
+  margin-inline: auto;
+}
