@@ -1,0 +1,459 @@
+.page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  padding: 2vmax;
+}
+
+.mario-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Press Start 2P", monospace;
+  perspective: 1000px;
+  position: relative;
+}
+
+/* Floating particles background */
+.mario-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      2px 2px at 20px 30px,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    ),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 100px 100px;
+  animation: float-particles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float-particles {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.question-block {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(145deg, #ffcc00 0%, #ffd700 50%, #ffcc00 100%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.1) 10px,
+      rgba(0, 0, 0, 0.1) 12px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.1) 10px,
+      rgba(0, 0, 0, 0.1) 12px
+    );
+  background-blend-mode: overlay;
+  border-radius: 8px;
+  box-shadow:
+    inset -4px -4px #d4a400,
+    inset 4px 4px #fff176,
+    8px 8px 0 #b68f00,
+    12px 12px 0 #7a5e00,
+    12px 12px 30px rgba(0, 0, 0, 0.5),
+    -8px -8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+  overflow: visible;
+  transition: all 0.3s ease;
+  animation: block-idle 3s ease-in-out infinite;
+  transform: rotateX(10deg) rotateY(10deg);
+  transform-style: preserve-3d;
+}
+
+/* Idle floating animation */
+@keyframes block-idle {
+  0%,
+  100% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(-6px);
+  }
+}
+
+/* Block hover effects */
+.question-block:hover {
+  animation: block-bounce 0.6s ease-out;
+  box-shadow:
+    inset -4px -4px #d4a400,
+    inset 4px 4px #fff176,
+    6px 6px 0 #b68f00,
+    8px 8px 0 #7a5e00,
+    8px 8px 35px rgba(0, 0, 0, 0.6),
+    -6px -6px 15px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes block-bounce {
+  0% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(0px) scale(1);
+  }
+  30% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(-12px) scale(1.05);
+  }
+  60% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(-6px) scale(1.02);
+  }
+  100% {
+    transform: rotateX(10deg) rotateY(10deg) translateY(0px) scale(1);
+  }
+}
+
+/* Mushroom container */
+.mushroom {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%) rotateX(10deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.mushroom .cap {
+  width: 70px;
+  height: 45px;
+  background: radial-gradient(
+    ellipse at 25% 25%,
+    #ff6b6b 0%,
+    #ff0000 35%,
+    #d40000 80%,
+    #a00000 100%
+  );
+  border-radius: 50% 50% 20% 20% / 80% 80% 20% 20%;
+  position: relative;
+  border: 3px solid #000;
+  box-shadow:
+    inset -3px -3px #b30000,
+    inset 3px 3px #ff4444,
+    0 8px 12px rgba(0, 0, 0, 0.5),
+    0 -4px 8px rgba(255, 255, 255, 0.2);
+  animation: cap-shine 2s ease-in-out infinite;
+  transform: translateZ(10px);
+}
+
+@keyframes cap-shine {
+  0%,
+  100% {
+    box-shadow:
+      inset -3px -3px #b30000,
+      inset 3px 3px #ff4444,
+      0 8px 12px rgba(0, 0, 0, 0.5),
+      0 -4px 8px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      inset -3px -3px #b30000,
+      inset 3px 3px #ff7777,
+      0 8px 12px rgba(0, 0, 0, 0.5),
+      0 -4px 8px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.spot {
+  position: absolute;
+  background: radial-gradient(circle, #ffffff 0%, #f5f5f5 70%, #e0e0e0 100%);
+  border-radius: 50%;
+  border: 2px solid #000;
+  animation: spot-pulse 2s ease-in-out infinite;
+  transform: translateZ(5px);
+}
+
+.spot1 {
+  width: 16px;
+  height: 16px;
+  top: 6px;
+  left: 12px;
+  animation-delay: 0s;
+}
+
+.spot2 {
+  width: 12px;
+  height: 12px;
+  top: 8px;
+  right: 8px;
+  animation-delay: 0.3s;
+}
+
+.spot3 {
+  width: 10px;
+  height: 10px;
+  top: 20px;
+  left: 25px;
+  animation-delay: 0.6s;
+}
+
+/* Mushroom head (white part with eyes) */
+.head {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 50%, #e8e8e8 100%);
+  border: 3px solid #000;
+  border-radius: 0 0 25px 25px;
+  margin-top: -3px;
+  z-index: 2;
+  box-shadow:
+    inset -2px -2px #d0d0d0,
+    inset 2px 2px #ffffff,
+    0 4px 6px rgba(0, 0, 0, 0.4),
+    0 -2px 4px rgba(255, 255, 255, 0.2);
+  transform: translateZ(5px);
+}
+
+/* Eyes */
+.eyes {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%) translateZ(8px);
+  display: flex;
+  gap: 14px;
+  animation: blink 4s ease-in-out infinite;
+}
+
+.eye {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, #333 0%, #000 100%);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+@keyframes blink {
+  0%,
+  90%,
+  100% {
+    transform: translateX(-50%) translateZ(8px) scaleY(1);
+  }
+  95% {
+    transform: translateX(-50%) translateZ(8px) scaleY(0.1);
+  }
+}
+
+/* Question Block Face */
+.block-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Press Start 2P", monospace;
+  font-size: 28px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow:
+    3px 3px #000,
+    -1px -1px #000,
+    1px -1px #000,
+    -1px 1px #000;
+  transform: translateZ(10px);
+}
+
+.question {
+  position: relative;
+  z-index: 2;
+  font-size: 80px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: question-glow 2s ease-in-out infinite;
+}
+
+.question-block:hover .question {
+  opacity: 0;
+}
+
+@keyframes question-glow {
+  0%,
+  100% {
+    text-shadow:
+      3px 3px #000,
+      -1px -1px #000,
+      1px -1px #000,
+      -1px 1px #000;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      3px 3px #000,
+      -1px -1px #000,
+      1px -1px #000,
+      -1px 1px #000,
+      0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+  }
+}
+
+/* Screws */
+.screws {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, #f0d000 0%, #d4a400 100%);
+  border: 2px solid #000;
+  border-radius: 50%;
+  box-shadow:
+    inset -1px -1px #b68f00,
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: screw-rotate 8s linear infinite;
+  transform: translateZ(12px);
+}
+
+@keyframes screw-rotate {
+  0% {
+    transform: translateZ(12px) rotate(0deg);
+  }
+  100% {
+    transform: translateZ(12px) rotate(360deg);
+  }
+}
+
+.top-left {
+  top: 6px;
+  left: 6px;
+}
+.top-right {
+  top: 6px;
+  right: 6px;
+  animation-delay: 2s;
+}
+.bottom-left {
+  bottom: 6px;
+  left: 6px;
+  animation-delay: 4s;
+}
+.bottom-right {
+  bottom: 6px;
+  right: 6px;
+  animation-delay: 6s;
+}
+
+/* Hover Effect: Mushroom pops up */
+.question-block:hover .mushroom {
+  transform: translateX(-50%) translateY(-20px) rotateX(15deg);
+  opacity: 1;
+  animation: mushroom-pop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Enhanced mushroom pop animation */
+@keyframes mushroom-pop {
+  0% {
+    transform: translateX(-50%) translateY(100%) rotateX(15deg) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) translateY(-30px) rotateX(15deg) scale(1.1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) translateY(-15px) rotateX(15deg) scale(0.95);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-20px) rotateX(15deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Particle effects on hover */
+.question-block:hover::after {
+  content: "▶";
+  position: absolute;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 1px,
+    transparent 1px
+  );
+  background-size: 15px 15px;
+  animation: sparkle 0.8s ease-out;
+  pointer-events: none;
+  top: 10px;
+  left: 40px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 64px;
+  color: white;
+  text-shadow:
+    3px 3px #000,
+    -1px -1px #000,
+    1px -1px #000,
+    -1px 1px #000;
+  opacity: 1;
+  transition:
+    opacity 0.2s ease 0.2s,
+    transform 0.4s ease 0.2s;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(1) translateZ(15px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25) translateZ(15px);
+  }
+  100% {
+    transform: scale(1.1) translateZ(15px);
+  }
+}
+
+/* Sound wave effect */
+.question-block:hover::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) translateZ(10px);
+  animation: sound-wave 0.8s ease-out;
+}
+
+@keyframes sound-wave {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) translateZ(10px);
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transform: translate(-50%, -50%) translateZ(10px);
+  }
+}
