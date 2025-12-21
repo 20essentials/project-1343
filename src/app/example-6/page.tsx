@@ -48,11 +48,13 @@ function Component() {
           key='visible'
           enter={{
             'slide-in-left': 'slide-in-left',
-            'slide-in-right': 'slide-in-right'
+            'slide-in-right': 'slide-in-right',
+            default: 'auto'
           }}
           exit={{
             'slide-out-left': 'slide-out-left',
-            'slide-out-right': 'slide-out-right'
+            'slide-out-right': 'slide-out-right',
+            default: 'auto'
           }}
         >
           <aside className='rectangle rectangle-gradient' />
@@ -62,11 +64,13 @@ function Component() {
           key='hidden'
           enter={{
             'slide-in-left': 'slide-in-left',
-            'slide-in-right': 'slide-in-right'
+            'slide-in-right': 'slide-in-right',
+            default: 'auto'
           }}
           exit={{
             'slide-out-left': 'slide-out-left',
-            'slide-out-right': 'slide-out-right'
+            'slide-out-right': 'slide-out-right',
+            default: 'auto'
           }}
         >
           <aside className='rectangle rectangle-hidden' />
