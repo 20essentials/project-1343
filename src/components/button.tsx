@@ -1,14 +1,19 @@
 'use client';
 import '@/styles/button.css';
-import { CSSProperties, useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { CSSProperties, useEffect, ViewTransition } from 'react';
 
-function ButtonComponent({ link, name }: { link: string; name: string }) {
-  const [clr] = useState(() => {
-    const hue = Math.floor(Math.random() * 360);
-    return hue;
-  });
-
+export function Button({
+  link,
+  name,
+  hue,
+  style
+}: {
+  link: string;
+  name: string;
+  hue: string;
+  style?: React.CSSProperties;
+}) {
   useEffect(() => {
     const btn = document.querySelector('a.sparkles') as HTMLAnchorElement;
 
@@ -21,13 +26,17 @@ function ButtonComponent({ link, name }: { link: string; name: string }) {
     }, 500);
 
     return () => clearTimeout(timeout1);
-  }, [clr]);
+  }, [hue]);
 
   return (
-    <a className='sparkles' href={link} style={{ '--clr': clr } as CSSProperties}>
-      <span>{name}</span>
-    </a>
+    <ViewTransition name={link}>
+      <Link
+        className='sparkles'
+        href={link}
+        style={{ '--clr': hue, ...style } as CSSProperties}
+      >
+        <span>{name}</span>
+      </Link>
+    </ViewTransition>
   );
 }
-
-export const Button = dynamic(async () => ButtonComponent, { ssr: false });

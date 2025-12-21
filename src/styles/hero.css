@@ -26,7 +26,7 @@
   --border-color-space: 0.2vmax;
 }
 
-.title {
+.title-1 {
   font-size: 4.5vmax;
   font-family: 'Space Grotesk', serif;
   letter-spacing: var(--border-color-space);

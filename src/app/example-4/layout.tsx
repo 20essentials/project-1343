@@ -1,6 +1,5 @@
 import { type Metadata } from 'next';
 import '@/styles/global.css';
-import { inter } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'View Transitions With NextJs',
@@ -16,17 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={inter.className}>
-      <body>
-        <video
-          className='am-video'
-          src='/assets/v1deo-1.mp4'
-          autoPlay
-          muted
-          loop
-        ></video>
-        <main className='page'>{children}</main>
-      </body>
-    </html>
+    <>
+      <video
+        className='am-video'
+        src='/assets/v1deo-1.mp4'
+        autoPlay
+        muted
+        loop
+      ></video>
+      <main className='page'>{children}</main>
+    </>
   );
 }

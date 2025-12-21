@@ -230,7 +230,7 @@
 /***** extra ****/
 .container-button-ej {
   position: absolute;
-  right: 1vmax;
-  bottom: 1vmax;
+  right: 3vmax;
+  bottom: 2vmax;
   width: fit-content;
 }

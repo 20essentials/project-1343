@@ -16,7 +16,7 @@ export default function Page() {
         <aside className='magnificent-glass'></aside>
       </header>
       <h3 className='am-title'>Most Popular Movies</h3>
-      <aside className='container-cards'>
+      <aside className='am-your-container-cards'>
         {DATA.map(({ image, title, minutes, year, id }, i) => (
           <article key={i} className='card'>
             <Link href={`/example-4/${id}`}>

@@ -6,7 +6,6 @@ function Thumbnail() {
 
 export function Video({ data }: { data: typeObjectData }) {
   //I don't use this data (but simulate slow, to use the suspense)
-  console.log(data);
 
   return (
     <div className='video'>

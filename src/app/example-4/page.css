@@ -81,7 +81,7 @@
       font-size: 1.3vmax;
     }
 
-    .container-cards {
+    .am-your-container-cards {
       display: flex;
       padding: 1vmax;
       gap: 0.7vmax;
