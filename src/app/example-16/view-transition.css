@@ -1,0 +1,39 @@
+::view-transition-new(root),
+.dark::view-transition-new(root) {
+  animation: square-in-bottom-right 2.5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+  animation: square-out-bottom-right 2.5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.3, 1);
+}
+
+@keyframes square-in-bottom-right {
+  from {
+    clip-path: inset(0 100% 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes square-out-bottom-right {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(100% 0 0 100%);
+  }
+}
+
+:root {
+  background: linear-gradient(to right, lime, cyan);
+}
+
+.dark {
+  background: linear-gradient(to right, orange, rgb(172, 78, 234));
+}
