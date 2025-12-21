@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
 export default function Home() {
-  redirect('/example-11');
+  redirect('/example-12');
   return <></>;
 }

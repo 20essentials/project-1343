@@ -16,7 +16,11 @@ function toggleTheme() {
 export default function Page() {
   return (
     <main className='page'>
-      <button className='tilt-wrapper' aria-label='Get started' onClick={toggleTheme}>
+      <button
+        className='tilt-wrapper'
+        aria-label='Get started'
+        onClick={toggleTheme}
+      >
         <div className='sensor tl'></div>
         <div className='sensor tr'></div>
         <div className='sensor bl'></div>

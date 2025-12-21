@@ -1,0 +1,412 @@
+.page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  place-content: center;
+  padding: 2vmax;
+}
+
+#Container {
+  --button-width: 20rem;
+  --button-hight: 4rem;
+  --animation-duration: 700ms;
+  --green-100: #d7f5e6;
+  --green-200: #b2ebce;
+  --green-300: #8de1b5;
+  --green-400: #67d69d;
+  --green-500: #3fc079;
+  --green-600: #36a96b;
+  --green-700: #2e915d;
+  --green-800: #25794f;
+  --green-900: #1d6140;
+  --green-1000: #154932;
+}
+
+.fx {
+  content: "";
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  filter: blur(0.1rem);
+}
+
+#buttonHand:hover {
+  transform: translateX(20%);
+}
+#checkbox:checked ~ #buttonOutBorder #button #buttonHand {
+  animation: swipe var(--animation-duration) cubic-bezier(0.19, 1, 0.22, 1)
+    alternate;
+
+  transform: translateX(
+      calc(var(--button-width) - var(--button-hight) - 0.6rem)
+    )
+    rotate(360deg);
+  background-color: #d5dbe1;
+  box-shadow:
+    inset 0rem -0.1rem 0.2rem #d5dbe1,
+    inset 0rem -0.1rem 0.2rem #d5dbe1,
+    inset 0rem 0.7rem 0.6rem #ffffff,
+    inset 0rem 0.8rem 0.3rem #d5dbe1,
+    inset 0rem -0.1rem 0.7rem 0.05rem #3fc079;
+}
+
+#checkbox:checked ~ #buttonOutBorder #button {
+  background-color: #3fc079;
+  box-shadow:
+    inset 0rem 0.5rem 0.5rem #00000033,
+    inset 0rem 0.5rem 0.5rem #3fc079,
+    inset 0.5rem 1rem 0.7rem #ffffff99,
+    inset 0rem -0.2rem 1rem #ffffff99,
+    0rem 1rem 2rem #00000033;
+}
+#checkbox:checked ~ #buttonOutBorder .bottom {
+  transform: scale(-1) translateY(-170%) translateX(40%);
+}
+#checkbox:checked ~ #buttonOutBorder .fx {
+  background-image: radial-gradient(
+      circle,
+      var(--green-500) 10%,
+      transparent 10%
+    ),
+    radial-gradient(circle, var(--green-200) 15%, transparent 15%),
+    radial-gradient(circle, var(--green-300) 22%, transparent 22%),
+    radial-gradient(circle, var(--green-900) 10%, transparent 22%),
+    radial-gradient(circle, var(--green-700) 15%, transparent 15%),
+    radial-gradient(circle, var(--green-500) 20%, transparent 20%),
+    radial-gradient(circle, var(--green-400) 22%, transparent 22%),
+    radial-gradient(circle, var(--green-400) 10%, transparent 10%),
+    radial-gradient(circle, var(--green-300) 22%, transparent 22%),
+    radial-gradient(circle, var(--green-1000) 10%, transparent 10%),
+    radial-gradient(circle, var(--green-1000) 15%, transparent 15%);
+  background-size:
+    15% 15%,
+    25% 25%,
+    20% 20%,
+    25% 25%,
+    18% 18%,
+    18% 18%,
+    15% 15%,
+    22% 22%,
+    15% 15%,
+    25% 25%,
+    20% 20%;
+  background-position: 50% 125%;
+  animation: bubblesAnimation var(--animation-duration) ease 400ms;
+  top: -80%;
+}
+#checkbox:checked ~ #buttonOutBorder::after {
+  background: rgba(63, 192, 121, 0.5);
+  animation: swipe-border var(--animation-duration)
+    cubic-bezier(0.19, 1, 0.22, 1) alternate;
+}
+#checkbox:checked ~ #buttonOutBorder::before {
+  box-shadow:
+    0 0 1rem 0.1rem #3fc079,
+    inset 0 0 1rem 0.1rem #3fc079;
+  animation: wave-border calc((var(--animation-duration) + 200ms)) ease infinite
+    300ms;
+}
+#checkbox:checked ~ #buttonOutBorder {
+  box-shadow: 0 0 5rem 1rem #3fc07999;
+  animation:
+    swipe-button var(--animation-duration) cubic-bezier(0.19, 1, 0.22, 1)
+      alternate,
+    shadow-border calc(var(--animation-duration) + 200ms) ease alternate
+      infinite 600ms;
+}
+
+#button {
+  z-index: 10;
+  transition: all var(--animation-duration) ease 300ms;
+  position: relative;
+  background-color: #d5dbe1;
+  padding: 0.1rem;
+  box-shadow:
+    inset 0rem 0.5rem 0.5rem #00000033,
+    inset 0rem 0.5rem 0.5rem #3fc07900,
+    inset 0.5rem 1rem 0.7rem #ffffff99,
+    inset 0rem -0.2rem 1rem #ffffffaa;
+
+  border-radius: var(--button-hight);
+
+  width: calc(var(--button-width));
+}
+
+#buttonOutBorder {
+  position: relative;
+  border-radius: var(--button-hight);
+  transition: all var(--animation-duration) ease 300ms;
+  box-shadow: 0rem 1rem 2rem #00000033;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.2rem;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(213, 219, 225, 0.5);
+    border-radius: var(--button-hight);
+
+    box-shadow: inset 0.5rem -1rem 0.7rem #ffffff99;
+    backdrop-filter: blur(0.1rem);
+    transition: all var(--animation-duration) ease 300ms;
+    z-index: 2;
+  }
+  &::before {
+    z-index: 0;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.2rem;
+    width: 100%;
+    height: 100%;
+
+    filter: blur(0.25);
+    border-radius: var(--button-hight);
+    transition: all calc(var(--animation-duration)) ease 300ms;
+  }
+}
+#buttonHand {
+  transition: all var(--animation-duration) cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateX(0) rotate(0);
+  background-color: #d5dbe1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--button-width) * 0.2);
+  height: var(--button-hight);
+
+  border-radius: 50%;
+  margin: 0.3rem 0.3rem 0.3rem 0.2rem;
+  box-shadow:
+    inset 2px 5px 5px -2px #00000033,
+    inset 0rem 0.7rem 0.6rem #ffffff,
+    inset -0.01rem -0.1rem 0rem #ffffff99,
+    2px 5px 5px 0px #00000011;
+  overflow: hidden;
+  .svg {
+    transform: scale(1.2);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+
+    top: -90%;
+    left: -210%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    transform: rotate(30deg);
+
+    background: rgba(255, 255, 255, 0.13);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.13) 0%,
+      rgba(255, 255, 255, 0.13) 77%,
+      rgba(255, 255, 255, 0.5) 92%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  &:hover::before {
+    opacity: 1;
+    top: 0%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+}
+
+#buttonText::before {
+  content: "Swipe to confirm";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+  color: #00000044;
+  font-weight: 600;
+  transition: all 300ms ease 300ms;
+}
+
+#buttonText::after {
+  content: "Confirmed";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+  text-align: center;
+  white-space: nowrap;
+  color: #00000044;
+  font-weight: 600;
+  transition: all 300ms ease 100ms;
+  opacity: 0;
+}
+
+#checkbox:checked ~ #buttonOutBorder #button #buttonText::before {
+  transform: translate(100%, -50%);
+  opacity: 0;
+}
+
+#checkbox:checked ~ #buttonOutBorder #button #buttonText::after {
+  transition: all 300ms ease 300ms;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+#checkbox {
+  display: none;
+}
+.svgLocked {
+  display: block;
+}
+.svgUnlocked {
+  display: none;
+}
+#checkbox:checked ~ #buttonOutBorder #button .svgUnlocked {
+  display: block;
+}
+#checkbox:checked ~ #buttonOutBorder #button .svgLocked {
+  display: none;
+}
+/*#region animation*/
+@keyframes swipe {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  30% {
+    transform: translateX(-2rem) rotate(-30deg) scaleY(0.7);
+  }
+
+  80% {
+    transform: translateX(
+        calc(var(--button-width) - var(--button-hight) - 0.6rem + 1rem)
+      )
+      rotate(390deg) scaleY(0.9);
+  }
+  100% {
+    transform: translateX(
+        calc(var(--button-width) - var(--button-hight) - 0.6rem)
+      )
+      rotate(360deg);
+  }
+}
+@keyframes swipe-border {
+  0% {
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+  30% {
+    width: 105%;
+    transform: translate(-58%, -50%);
+  }
+  45% {
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+  80% {
+    width: 105%;
+    transform: translate(-48%, -50%);
+  }
+  100% {
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes swipe-button {
+  0% {
+    transform: none;
+  }
+  30% {
+    transform: translateX(-7%) translateY(10%) scaleY(0.8) rotate(-3deg);
+  }
+
+  80% {
+    transform: translateX(3%) translateY(-7%) scaleY(0.9) rotate(2deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes bubblesAnimation {
+  0% {
+    background-position:
+      10% 95%,
+      15% 95%,
+      15% 95%,
+      20% 95%,
+      30% 95%,
+      30% 95%,
+      45% 95%,
+      65% 95%,
+      75% 95%,
+      10% 95%,
+      15% 95%,
+      15% 95%;
+  }
+  70% {
+    background-position:
+      5% 85%,
+      5% 25%,
+      15% 45%,
+      25% 5%,
+      35% 35%,
+      27% 55%,
+      55% 55%,
+      75% 25%,
+      95% 35%,
+      5% 85%,
+      15% 45%;
+  }
+  100% {
+    background-position:
+      5% 75%,
+      5% 15%,
+      15% 35%,
+      25% 0%,
+      35% 25%,
+      27% 45%,
+      55% 45%,
+      70% 15%,
+      95% 25%,
+      5% 75%,
+      15% 35%;
+    background-size: 0% 0%;
+  }
+}
+
+@keyframes wave-border {
+  0% {
+    width: 75%;
+    height: 75%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 150%;
+    height: 150%;
+    opacity: 0;
+  }
+}
+@keyframes shadow-border {
+  0% {
+    box-shadow: 0 0 5rem 1rem #3fc07999;
+  }
+
+  100% {
+    box-shadow: 0 0 10rem 5rem #3fc07999;
+  }
+}
+
