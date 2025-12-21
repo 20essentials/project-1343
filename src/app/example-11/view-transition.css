@@ -1,39 +1,27 @@
-/* polygon */
+/* polygon-gradient */
 
 ::view-transition-group(root) {
-  animation-duration: 0.7s;
-  animation-timing-function: var(--expo-out);
+  animation-timing-function: ease-in-out;
 }
 ::view-transition-new(root) {
-  animation-name: reveal-light;
+  mask: url('/assets/custom-svg.svg') top left / 0 no-repeat;
+  mask-origin: top left;
+  animation: scale 1.5s;
   animation-fill-mode: both;
 }
 ::view-transition-old(root),
 .dark::view-transition-old(root) {
-  animation: none;
+  animation: scale 1.5s;
   animation-fill-mode: both;
   z-index: -1;
+  transform-origin: top left;
 }
-.dark::view-transition-new(root) {
-  animation-name: reveal-dark;
-  animation-fill-mode: both;
-}
-@keyframes reveal-dark {
-  from {
-    clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
-  }
+@keyframes scale {
   to {
-    clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+    mask-size: 200vmax;
   }
 }
-@keyframes reveal-light {
-  from {
-    clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
-  }
-  to {
-    clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
-  }
-}
+   
 
 :root {
   background: white;

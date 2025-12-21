@@ -16,32 +16,72 @@ function toggleTheme() {
 export default function Page() {
   return (
     <main className='page'>
-      <button className='button' onClick={toggleTheme}>
-        <svg
-          stroke='#ffffff'
-          xmlSpace='preserve'
-          viewBox='0 0 80 80'
-          xmlnsXlink='http://www.w3.org/1999/xlink'
-          xmlns='http://www.w3.org/2000/svg'
-          id='Capa_1'
-          version='1.1'
-          fill='#ffffff'
-        >
-          <g strokeWidth={0} id='SVGRepo_bgCarrier' />
-          <g
-            strokeLinejoin='round'
-            strokeLinecap='round'
-            id='SVGRepo_tracerCarrier'
-          />
-          <g id='SVGRepo_iconCarrier'>
-            {' '}
-            <g>
-              {' '}
-              <path d='M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16 S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98 c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8 s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72 c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8 h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z' />{' '}
-            </g>{' '}
-          </g>
-        </svg>
-        command
+      <button className='tilt-wrapper' aria-label='Get started' onClick={toggleTheme}>
+        <div className='sensor tl'></div>
+        <div className='sensor tr'></div>
+        <div className='sensor bl'></div>
+        <div className='sensor br'></div>
+
+        <div className='visual-pill'>
+          <div className='specular-highlight'></div>
+
+          <div className='text-label'>
+            <span className='char' style={{ '--i': '0' } as React.CSSProperties}>
+              G
+            </span>
+            <span className='char' style={{ '--i': '1' } as React.CSSProperties}>
+              e
+            </span>
+            <span className='char' style={{ '--i': '2' } as React.CSSProperties}>
+              t
+            </span>
+            <span className='char' style={{ '--i': '3' } as React.CSSProperties}>
+              &nbsp;
+            </span>
+            <span className='char' style={{ '--i': '4' } as React.CSSProperties}>
+              s
+            </span>
+            <span className='char' style={{ '--i': '5' } as React.CSSProperties}>
+              t
+            </span>
+            <span className='char' style={{ '--i': '6' } as React.CSSProperties}>
+              a
+            </span>
+            <span className='char' style={{ '--i': '7' } as React.CSSProperties}>
+              r
+            </span>
+            <span className='char' style={{ '--i': '8' } as React.CSSProperties}>
+              t
+            </span>
+            <span className='char' style={{ '--i': '9' } as React.CSSProperties}>
+              e
+            </span>
+            <span className='char' style={{ '--i': '10' } as React.CSSProperties}>
+              d
+            </span>
+          </div>
+
+          <div className='chip-wrapper'>
+            <div className='chip'>
+              <svg
+                className='arrow-icon'
+                viewBox='0 0 24 24'
+                fill='none'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3'
+                  stroke='white'
+                  strokeWidth='3'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div className='right-glow'></div>
+        </div>
       </button>
     </main>
   );
