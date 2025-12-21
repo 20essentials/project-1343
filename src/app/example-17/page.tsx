@@ -24,7 +24,7 @@ export default function Page() {
           type='checkbox'
           onClick={toggleTheme}
         />
-        <div className='button'>
+        <div className='button-li'>
           <label
             className='water-drop donut-transform'
             htmlFor='toggle-animation'
