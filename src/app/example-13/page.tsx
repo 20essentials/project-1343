@@ -16,48 +16,171 @@ function toggleTheme() {
 export default function Page() {
   return (
     <main className='page'>
-      <label id='Container'>
-        <input type='checkbox' id='checkbox' onClick={toggleTheme} />
-        <div id='buttonOutBorder'>
-          <div className='fx' />
-          <div className='fx bottom' />
-          <div id='button'>
-            <div id='buttonText' />
-            <div id='buttonHand'>
-              <svg
-                className='svg svgLocked'
-                xmlns='http://www.w3.org/2000/svg'
-                width={24}
-                height={29}
-                viewBox='0 0 24 29'
-                fill='none'
-                stroke='#BBBBBB'
-                strokeWidth={2}
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              >
-                <rect x={3} y={11} width={18} height={15} rx={2} ry={2} />
-                <path d='M7 11V7a5 5 0 0 1 10 0v4' />
-              </svg>
-              <svg
-                className='svg svgUnlocked'
-                xmlns='http://www.w3.org/2000/svg'
-                width={24}
-                height={29}
-                viewBox='0 0 24 29'
-                fill='none'
-                stroke='#3fc079'
-                strokeWidth={2}
-                strokeLinecap='round'
-                strokeLinejoin='round'
-              >
-                <rect x={3} y={11} width={18} height={15} rx={2} ry={2} />
-                <path d='M7 11V7a5 5 0 0 1 9.9-1' />
-              </svg>
-            </div>
+      <div className='btn-wrapper' onClick={toggleTheme}>
+        <button className='btn'>
+          <div className='btn-icon'>
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+            <div className='pixel' />
+          </div>
+          <div className='btn-text'>
+            <span className='btn-letter'>S</span>
+            <span className='btn-letter'>e</span>
+            <span className='btn-letter'>e</span>
+            <span className='btn-letter'>&nbsp;</span>
+            <span className='btn-letter'>P</span>
+            <span className='btn-letter'>l</span>
+            <span className='btn-letter'>a</span>
+            <span className='btn-letter'>n</span>
+            <span className='btn-letter'>s</span>
+          </div>
+        </button>
+        <svg
+          id='corner-1'
+          width={29}
+          height={29}
+          viewBox='0 0 29 29'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <g clipPath='url(#clip0_117_21310)'>
+            <path
+              className='line'
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M11.4381 1L0 1V0L11.4381 1.78814e-07C12.6316 -2.98023e-07 13.7762 0.474106 14.6201 1.31802L27.1577 13.8555C28.0016 14.6995 28.4757 15.8441 28.4757 17.0375V28.4757H27.4757V17.0375C27.4757 16.1093 27.1069 15.219 26.4505 14.5627L13.913 2.02513C13.2566 1.36875 12.3664 1 11.4381 1Z'
+            />
+          </g>
+          <defs>
+            <clipPath id='clip0_117_21310'>
+              <rect width={29} height={29} fill='white' />
+            </clipPath>
+          </defs>
+        </svg>
+        <svg
+          id='corner-2'
+          width={29}
+          height={29}
+          viewBox='0 0 29 29'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <g clipPath='url(#clip0_117_21310)'>
+            <path
+              className='line'
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M11.4381 1L0 1V0L11.4381 1.78814e-07C12.6316 -2.98023e-07 13.7762 0.474106 14.6201 1.31802L27.1577 13.8555C28.0016 14.6995 28.4757 15.8441 28.4757 17.0375V28.4757H27.4757V17.0375C27.4757 16.1093 27.1069 15.219 26.4505 14.5627L13.913 2.02513C13.2566 1.36875 12.3664 1 11.4381 1Z'
+            />
+          </g>
+          <defs>
+            <clipPath id='clip0_117_21310'>
+              <rect width={29} height={29} fill='white' />
+            </clipPath>
+          </defs>
+        </svg>
+        <svg
+          id='corner-3'
+          width={29}
+          height={29}
+          viewBox='0 0 29 29'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <g clipPath='url(#clip0_117_21310)'>
+            <path
+              className='line'
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M11.4381 1L0 1V0L11.4381 1.78814e-07C12.6316 -2.98023e-07 13.7762 0.474106 14.6201 1.31802L27.1577 13.8555C28.0016 14.6995 28.4757 15.8441 28.4757 17.0375V28.4757H27.4757V17.0375C27.4757 16.1093 27.1069 15.219 26.4505 14.5627L13.913 2.02513C13.2566 1.36875 12.3664 1 11.4381 1Z'
+            />
+          </g>
+          <defs>
+            <clipPath id='clip0_117_21310'>
+              <rect width={29} height={29} fill='white' />
+            </clipPath>
+          </defs>
+        </svg>
+        <svg
+          id='corner-4'
+          width={29}
+          height={29}
+          viewBox='0 0 29 29'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <g clipPath='url(#clip0_117_21310)'>
+            <path
+              className='line'
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M11.4381 1L0 1V0L11.4381 1.78814e-07C12.6316 -2.98023e-07 13.7762 0.474106 14.6201 1.31802L27.1577 13.8555C28.0016 14.6995 28.4757 15.8441 28.4757 17.0375V28.4757H27.4757V17.0375C27.4757 16.1093 27.1069 15.219 26.4505 14.5627L13.913 2.02513C13.2566 1.36875 12.3664 1 11.4381 1Z'
+            />
+          </g>
+          <defs>
+            <clipPath id='clip0_117_21310'>
+              <rect width={29} height={29} fill='white' />
+            </clipPath>
+          </defs>
+        </svg>
+        <div className='card'>
+          <div className='card-header'>
+            <span>Plans?</span>
+          </div>
+          <div className='card-body'>
+            <p>
+              There are no plans! <br />
+              It`s free and open-source!
+            </p>
           </div>
         </div>
-      </label>
+      </div>
     </main>
   );
 }
