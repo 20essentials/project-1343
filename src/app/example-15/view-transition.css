@@ -1,0 +1,72 @@
+::view-transition-new(root) {
+  /*   mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="white"/></svg>')
+    center / 0 no-repeat;
+  animation: scale 1s;
+  animation-fill-mode: both; */
+  animation: in-circle-swoop 5s;
+  animation-fill-mode: both;
+}
+
+::view-transition-old(root),
+.open::view-transition-old(root) {
+  animation: out-circle-swoop 5s;
+  animation-fill-mode: both;
+  z-index: -1;
+  /* animation: none;
+  animation-fill-mode: both;
+  z-index: -1; */
+}
+
+.open::view-transition-new(root) {
+  animation: in-circle-swoop 5s;
+  animation-fill-mode: both;
+}
+
+/* @keyframes scale {
+  to {
+    mask-size: 200vmax;
+  }
+} */
+
+/* :root {
+  background: white;
+}
+
+.open {
+  background: black;
+} */
+
+/* @keyframes in-circle-swoop {
+  from {
+    clip-path: circle(0% at 100% 0%)
+  }
+  to {
+    clip-path:  circle(150% at 100% 100%);
+  }
+} */
+
+@keyframes in-circle-swoop {
+  from {
+    clip-path: var(--circle-top-right-out);
+  }
+  to {
+    clip-path: var(--circle-bottom-right-in);
+  }
+}
+
+@keyframes out-circle-swoop {
+  from {
+    clip-path: var(--circle-bottom-right-in);
+  }
+  to {
+    clip-path: var(--circle-top-right-out);
+  }
+}
+
+:root {
+  background: white;
+}
+
+.dark {
+  background: skyblue;
+}
